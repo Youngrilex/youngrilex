@@ -1,5 +1,4 @@
 import { AppBar, Badge, Box, IconButton, Menu, MenuItem, Toolbar, alpha, styled } from '@mui/material'
-import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import React from 'react';
 import InputBase from '@mui/material/InputBase';
@@ -67,10 +66,6 @@ const Navbar = () => {
     const handleMenuClose = () => {
       setAnchorEl(null);
       handleMobileMenuClose();
-    };
-  
-    const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-      setMobileMoreAnchorEl(event.currentTarget);
     };
   
     const menuId = 'primary-search-account-menu';
@@ -156,25 +151,6 @@ const Navbar = () => {
           />
         </Search>
         <Box sx={{ flexGrow: 1 }} />
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-        </Box>
-        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-          <IconButton
-            size="large"
-            aria-label="show more"
-            aria-controls={mobileMenuId}
-            aria-haspopup="true"
-            onClick={handleMobileMenuOpen}
-            color="inherit"
-          >
-            <MoreIcon />
-          </IconButton>
-        </Box>
       </Toolbar>
     </AppBar>
     {renderMobileMenu}
