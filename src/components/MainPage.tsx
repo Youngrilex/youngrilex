@@ -14,8 +14,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Container from "@mui/material/Container";
 import Button from "@mui/joy/Button";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import Navbar from "./NAvbar";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const itemData = [
   {
