@@ -35,23 +35,23 @@ const itemData = [
     {
       img: "../assets/pp.jpg",
       title: "PICTURE FRAME",
-      author: "@arwinneil",
+      author: "Every frame and every scene has to have an intention.",
     },
     {
       img: "../assets/JOTTER.jpg",
       title: "JOTTER DESIGN & PRINTING",
-      author: "@tjdragotta",
+      author: "Hard cover jotters are the holy grail of party souvenirs.",
     },
     {
       img: "../assets/mug.png",
       title: "Customized Printing on Mugs, T-shirts & Caps",
-      author: "@katie_wasserman",
+      author: "Create custom magic mugs with your photos and messages. Surprise everyone as your mug displays its prints every time you pour hot liquid into it.",
     },
   ];
 
 const Offer = () => {
   return (
-    <div> <h3 className="text-[#002db3] font-semibold text-[14px] p-4 sm:text-[25px] text-center" >WHAT WE OFFER?</h3>
+    <div> <h3 className="text-[#1d4ed8] font-semibold text-[14px] p-4 sm:text-[25px] text-center" >WHAT WE OFFER?</h3>
     <div className='grid mx-6 sm:mx-12 grid-cols sm:grid-cols-4 gap-4'>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>

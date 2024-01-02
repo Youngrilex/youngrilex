@@ -1,162 +1,160 @@
-import { AppBar, Badge, Box, IconButton, Menu, MenuItem, Toolbar, alpha, styled } from '@mui/material'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import React from 'react';
-import InputBase from '@mui/material/InputBase';
-import { Link } from 'react-router-dom';
-import SearchIcon from '@mui/icons-material/Search';
-import { CiMenuKebab } from "react-icons/ci";
-
-
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  }));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '20ch',
-      },
-    },
-  }));
+import React from "react";
+import { FaTimes } from "react-icons/fa";
+import { SlMenu } from "react-icons/sl";
+import Dialogs from "./Dialog";
 
 const Navbar = () => {
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-      React.useState<null | HTMLElement>(null);
-  
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  
-    const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorEl(event.currentTarget);
+  const [scrolling, setScrolling] = React.useState(false);
+
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // You can adjust the threshold based on your design
+      const threshold = 10;
+
+      // Update the state based on the scroll position
+      setScrolling(scrollPosition > threshold);
     };
-  
-    const handleMobileMenuClose = () => {
-      setMobileMoreAnchorEl(null);
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
-  
-    const handleMenuClose = () => {
-      setAnchorEl(null);
-      handleMobileMenuClose();
-    };
-  
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        id={menuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-      >
-        <MenuItem onClick={handleMenuClose}>Home</MenuItem>
-        <MenuItem onClick={handleMenuClose}>About Us</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Design & Printing</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Artwork</MenuItem>
-        <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
-        <MenuItem onClick={handleMenuClose}><Link color="inherit" to="/page2">
-          Login
-        </Link></MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      </Menu>
-    );
-  
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        id={mobileMenuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
-      >
-        <MenuItem>
-          <IconButton size="large" aria-label="show 3 items in carts" color="inherit">
-            <Badge badgeContent={3} color="error">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-          <p>Cart</p>
-        </MenuItem>
-      </Menu>
-    );
+  }, []);
+
+  const logoSrc = scrolling ? "../assets/newl.png" : "../assets/newl.png";
 
   return (
-    <div> <Box sx={{ flexGrow: 1 }}>
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-            size="large"
-            edge="end"
-            aria-label="menu"
-            aria-controls={menuId}
-            aria-haspopup="true"
-            onClick={handleProfileMenuOpen}
-            color="inherit"
+    <nav
+      className={`fixed top-0 w-full z-20 h-24 ${
+        scrolling
+          ? "bg-gradient-to-r from-cyan-500 to-blue-500"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="w-full flex items-center justify-between h-24 sm:gap-96">
+        <div className="flex items-center font-serif font-bold ml-4 sm:ml-12">
+          <img className="pr-4 sm:pr-10 h-[50px] sm:h-[70px]" src={logoSrc} alt="logo" />
+          <div className="flex flex-col items-center text-[20px] sm:text-[28px]">
+            <span className="text-[#FFD700]">Youngrilex</span>
+            <span className="text-white text-[16px] sm:text-[24px]">Artwork</span>
+          </div>
+        </div>
+        <div
+          className={`${
+            menuOpen ? "hidden" : "hidden"
+          } lg:block lg:items-center`}
+        >
+          <div className={`text-${scrolling ? "white" : ""}`}>
+            <div className="flex lg:items-center lg:justify-around lg:gap-10 font-bold text-white">
+              <a
+                rel="noreferrer"
+                href="#home"
+                className="text-white hover:text-[#83daf7] py-2 hover:border-b-2"
+              >
+                Home
+              </a>
+              <a
+                rel="noreferrer"
+                href="#Portfolio"
+                className="text-white  hover:text-[#83daf7] py-2 hover:border-b-2 "
+              >
+                Services
+              </a>
+              <a
+                rel="noreferrer"
+                href="#Portfolio"
+                className="text-white hover:text-[#83daf7] py-2 hover:border-b-2 "
+              >
+                Portfolio
+              </a>
+              <a
+                rel="noreferrer"
+                href="#About"
+                className="text-white hover:text-[#83daf7] py-2 hover:border-b-2"
+              >
+                About
+              </a>
+              <a
+                rel="noreferrer"
+                href="#Contact"
+                className="text-white hover:text-[#83daf7] py-2 hover:border-b-2"
+              >
+                Contact
+              </a>
+              <Dialogs />
+            </div>
+          </div>
+        </div>
+        <div className="">
+          <button
+            className="text-[#ffea72]  bg-transparent text-[24px] lg:hidden focus:outline-none"
+            onClick={toggleMenu}
           >
-          <CiMenuKebab />
-        </IconButton>
-    <img src="../assets/newl.png" alt="" style={{ width: 50, height:50, marginRight: 30, marginLeft: 10}}/>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search…"
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </Search>
-        <Box sx={{ flexGrow: 1 }} />
-      </Toolbar>
-    </AppBar>
-    {renderMobileMenu}
-    {renderMenu}
-  </Box></div>
-  )
-}
+            {menuOpen ? (
+              <FaTimes className="mt-32 ml-8" />
+            ) : (
+              <SlMenu />
+            )}
+          </button>
+          <div
+            className={`${
+              menuOpen ? "block" : "hidden"
+            } lg:hidden lg:items-center lg:w-auto`}
+          >
+            <div className={`text-${scrolling ? "white" : ""}`}>
+              <div className="flex flex-col items-center justify-around rounded-xl shadow-md bg-black/80 p-4 font-bold">
+                <a
+                  rel="noreferrer"
+                  href="/Home"
+                  className="text-white hover:text-[#83daf7]"
+                >
+                  Home
+                </a>
+                <a
+                  rel="noreferrer"
+                  href="/Home"
+                  className="text-white hover:text-[#83daf7]"
+                >
+                Services
+                </a>
+                <a
+                  rel="noreferrer"
+                  href="#Portfolio"
+                  className="text-white hover:text-[#83daf7]"
+                >
+                  Portfolio
+                </a>
+                <a
+                  rel="noreferrer"
+                  href="#About"
+                  className="text-white hover:text-[#83daf7]"
+                >
+                  About
+                </a>
+                <a
+                  rel="noreferrer"
+                  href="#Contact"
+                  className="text-white hover:text-[#83daf7]"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
