@@ -115,14 +115,14 @@ const Navbar = () => {
               <div className="flex flex-col items-center justify-around rounded-xl shadow-md bg-black/80 p-4 font-bold">
                 <a
                   rel="noreferrer"
-                  href="/Home"
+                  href="#home"
                   className="text-white hover:text-[#83daf7]"
                 >
                   Home
                 </a>
                 <a
                   rel="noreferrer"
-                  href="/Home"
+                  href="#Services"
                   className="text-white hover:text-[#83daf7]"
                 >
                 Services

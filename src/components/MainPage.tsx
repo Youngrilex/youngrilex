@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Contact from "./Contact";
 import Navbar from "./Navbar";
 import Offer from "./Offer";
+import { FaGreaterThan } from "react-icons/fa";
 
 export default function WholeApp() {
   return (
@@ -25,15 +26,16 @@ export default function WholeApp() {
       </article>
       <Offer />
       <div className="flex flex-col items-center my-4">
-        <h3 className="text-[#002db3] pb-4">Want to see our works?</h3>
-        <Link to="/page4"><button id="Portfolio" className="bg-[#002db3] text-white">
-          GRAPHICS DESIGN PORTFOLIO
+        <h3 className=" py-4  text-[14px] sm:text-[25px]">Want to see our works?</h3>
+        
+        <Link to="/Portfolio"><button id="Portfolio" className="flex gap-2 items-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-[14px] sm:text-[25px]">
+          GRAPHICS DESIGN PORTFOLIO<FaGreaterThan />
         </button></Link>
       </div>
       <div>
         <div id="About" className="grid grid-cols sm:grid-cols-3 gap-12 m-6  text-justify">
           <div className="flex flex-col shadow-md  p-4 items-center">
-            <h2 className="pb-4 font-bold text-[20px] text-[#1d4ed8]">
+            <h2 className="pb-4 font-bold text-[20px]">
               Our Team
             </h2>
             <h2>
@@ -46,7 +48,7 @@ export default function WholeApp() {
             </h2>
           </div>
           <div className="flex flex-col shadow-md  p-4 items-center">
-            <h2 className="pb-4 font-bold text-[20px] text-[#1d4ed8]">
+            <h2 className="pb-4 font-bold text-[20px]">
               Our Vision
             </h2>
             <h2>
@@ -58,7 +60,7 @@ export default function WholeApp() {
             </h2>
           </div>
           <div className="flex flex-col shadow-md  p-4 items-center">
-            <h2 className="pb-4 font-bold text-[20px] text-[#1d4ed8]">
+            <h2 className="pb-4 font-bold text-[20px]">
               Our Mission
             </h2>
             <h2>
