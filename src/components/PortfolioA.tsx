@@ -31,6 +31,10 @@ export default function Portfolio() {
 
 const itemData = [
   {
+    img: "../assets/youngrilex l.jpg",
+    title: "Sink",
+  },
+  {
     img: "../assets/kabeerah business  1.jpg",
     title: "Bed",
   },
@@ -57,10 +61,6 @@ const itemData = [
   {
     img: "../assets/JOTTER.jpg",
     title: "Chairs",
-  },
-  {
-    img: "../assets/youngrilex l.jpg",
-    title: "Sink",
   },
   {
     img: "../assets/al-haqq.jpg",
