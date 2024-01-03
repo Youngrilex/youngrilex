@@ -65,7 +65,7 @@ const Navbar = () => {
               </a>
               <a
                 rel="noreferrer"
-                href="#Portfolio"
+                href="#Services"
                 className="text-white  hover:text-[#83daf7] py-2 hover:border-b-2 "
               >
                 Services

@@ -51,7 +51,7 @@ const itemData = [
 
 const Offer = () => {
   return (
-    <div> <h3 className="text-[#1d4ed8] font-semibold text-[14px] p-4 sm:text-[25px] text-center" >WHAT WE OFFER?</h3>
+    <div> <h3 id="Services" className="text-[#1d4ed8] font-semibold text-[14px] p-4 sm:text-[25px] text-center" >WHAT WE OFFER?</h3>
     <div className='grid mx-6 sm:mx-12 grid-cols sm:grid-cols-4 gap-4'>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>

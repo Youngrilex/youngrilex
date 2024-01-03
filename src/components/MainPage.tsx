@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Contact from "./Contact";
 import Navbar from "./Navbar";
 import Offer from "./Offer";
@@ -12,7 +13,7 @@ export default function WholeApp() {
           alt=""
           className="w-[100%] h-[100%] relative"
         />
-        <div className="absolute flex flex-col justify-center items-center text-white w-[100%] top-10 sm:top-0 bottom-0 left-0 right-0">
+        <div id="home" className="absolute flex flex-col justify-center items-center text-white w-[100%] top-10 sm:top-0 bottom-0 left-0 right-0">
           {/* <h2 className="text-[#FFD700] text-[20px] sm:text-[50px] font-bold">
             YOUNGRILEX ARTWORK
           </h2> */}
@@ -25,12 +26,12 @@ export default function WholeApp() {
       <Offer />
       <div className="flex flex-col items-center my-4">
         <h3 className="text-[#002db3] pb-4">Want to see our works?</h3>
-        <button className="bg-[#002db3] text-white">
+        <Link to="/page4"><button id="Portfolio" className="bg-[#002db3] text-white">
           GRAPHICS DESIGN PORTFOLIO
-        </button>
+        </button></Link>
       </div>
       <div>
-        <div className="grid grid-cols sm:grid-cols-3 gap-12 m-6  text-justify">
+        <div id="About" className="grid grid-cols sm:grid-cols-3 gap-12 m-6  text-justify">
           <div className="flex flex-col shadow-md  p-4 items-center">
             <h2 className="pb-4 font-bold text-[20px] text-[#1d4ed8]">
               Our Team
