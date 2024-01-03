@@ -29,7 +29,7 @@ export default function WholeApp() {
         <h3 className=" py-4  text-[14px] sm:text-[25px]">Want to see our works?</h3>
         
         <Link to="/Portfolio"><button id="Portfolio" className="flex gap-2 items-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-[14px] sm:text-[25px]">
-          GRAPHICS DESIGN PORTFOLIO<FaGreaterThan />
+        PORTFOLIO<FaGreaterThan />
         </button></Link>
       </div>
       <div>

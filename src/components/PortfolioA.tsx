@@ -55,10 +55,6 @@ const itemData = [
     title: "Coffee table",
   },
   {
-    img: "../assets/NEYMAR.jpg",
-    title: "Doors",
-  },
-  {
     img: "../assets/KIKS Book cover.jpg",
     title: "Coffee",
   },
@@ -77,5 +73,9 @@ const itemData = [
   {
     img: "../assets/JOTTER.jpg",
     title: "Chairs",
+  },
+  {
+    img: "../assets/NEYMAR.jpg",
+    title: "Doors",
   },
 ];
