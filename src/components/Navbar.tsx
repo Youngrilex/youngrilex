@@ -112,7 +112,7 @@ const Navbar = () => {
             } lg:hidden lg:items-center lg:w-auto`}
           >
             <div className={`text-${scrolling ? "white" : ""}`}>
-              <div className="flex flex-col items-center justify-around rounded-xl shadow-md bg-black/80 p-4 font-bold">
+              <div className="flex flex-col text-left rounded-xl shadow-md bg-black/80 p-4 font-semibold">
                 <a
                   rel="noreferrer"
                   href="#home"
