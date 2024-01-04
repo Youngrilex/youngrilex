@@ -48,7 +48,7 @@ const itemData = [
     author: "Hard cover jotters are the holy grail of party souvenirs.",
   },
   {
-    img: "../assets/mug.png",
+    img: "../assets/mug.jpg",
     title: "Customized Printing on Mugs, T-shirts & Caps",
     author:
       "Create custom magic mugs with your photos and messages. Surprise everyone as your mug displays its prints every time you pour hot liquid into it.",
